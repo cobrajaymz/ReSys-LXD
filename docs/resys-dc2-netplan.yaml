@@ -1,0 +1,14 @@
+network:
+  version: 2
+  ethernets:
+    eth0:
+      dhcp4: no
+      addresses:
+        - 10.10.10.12/24
+      routes:
+        - to: default
+          via: 10.10.10.1
+      nameservers:
+        addresses:
+          - 8.8.8.8
+          - 1.1.1.1

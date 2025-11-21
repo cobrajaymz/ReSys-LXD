@@ -11,7 +11,9 @@ devices:
   root:
     path: /
     pool: resys
+    size: 5GB
     type: disk
 used_by:
 - /1.0/instances/resys-dc1?project=ReSys
+- /1.0/instances/resys-dc2?project=ReSys
 project: ReSys
