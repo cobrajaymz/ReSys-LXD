@@ -1,21 +1,36 @@
 #!/bin/bash
-# Script to install LXD on Ubuntu
-
 set -e
 
-echo "Updating system..."
-sudo apt update && sudo apt upgrade -y
+echo "[1/3] Updating system..."
+sudo apt update -y
+sudo apt upgrade -y
 
-echo "Installing LXD via snap..."
-sudo apt install snapd -y
-sudo snap install lxd
+echo "[2/3] Installing LXD..."
+sudo apt install -y lxd lxd-client
 
-echo "Adding current user to lxd group..."
-sudo usermod -aG lxd $USER
-newgrp lxd
+echo "[3/3] Initializing LXD..."
+cat <<EOF | sudo lxd init --preseed
+config: {}
+networks:
+- name: lxdbr0
+  type: bridge
+  config:
+    ipv4.address: auto
+    ipv4.nat: "true"
+    ipv6.address: none
+storage_pools:
+- name: default
+  driver: dir
+profiles:
+- name: default
+  config: {}
+  devices:
+    root:
+      path: /
+      pool: default
+      type: disk
+cluster: null
+EOF
 
-echo "Initializing LXD..."
-sudo lxd init --auto
-
-echo "LXD installed and initialized successfully!"
-echo "Please log out and back in if needed to apply group changes."
+echo "LXD installation complete!"
+lxc version
