@@ -2,7 +2,9 @@
 # Script to set up ReSys multi-tier container infrastructure
 
 set -e
-
+# projects 
+lxc project create ReSys 
+lxc project switch ReSys
 # Networks
 echo "Creating LXD networks..."
 sudo lxc network create resys_dc_net ipv4.address=10.10.10.1/24 ipv4.nat=true ipv6.address=none || echo "Network already exists"
