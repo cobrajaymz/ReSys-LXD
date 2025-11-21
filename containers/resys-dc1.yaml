@@ -1,0 +1,37 @@
+architecture: x86_64
+config:
+  image.architecture: amd64
+  image.description: ubuntu 24.04 LTS amd64 (release) (20251031)
+  image.label: release
+  image.os: ubuntu
+  image.release: noble
+  image.serial: "20251031"
+  image.type: squashfs
+  image.version: "24.04"
+  limits.cpu: "2"
+  limits.memory: 1GB
+  volatile.base_image: be09e63f57589681b73b4fbdda88d41f606608aae40fa812d9399c8219630ac0
+  volatile.cloud-init.instance-id: e63beb06-15c9-49d3-bf44-32ebd4b5b313
+  volatile.eth0.host_name: veth4e4c3329
+  volatile.eth0.hwaddr: 00:16:3e:5b:27:3c
+  volatile.idmap.base: "0"
+  volatile.idmap.current: '[{"Isuid":true,"Isgid":false,"Hostid":1000000,"Nsid":0,"Maprange":1000000000},{"Isuid":false,"Isgid":true,"Hostid":1000000,"Nsid":0,"Maprange":1000000000}]'
+  volatile.idmap.next: '[{"Isuid":true,"Isgid":false,"Hostid":1000000,"Nsid":0,"Maprange":1000000000},{"Isuid":false,"Isgid":true,"Hostid":1000000,"Nsid":0,"Maprange":1000000000}]'
+  volatile.last_state.idmap: '[]'
+  volatile.last_state.power: RUNNING
+  volatile.uuid: f9b617b5-7782-4814-9e9a-02e5a8f39900
+  volatile.uuid.generation: f9b617b5-7782-4814-9e9a-02e5a8f39900
+devices:
+  eth0:
+    name: eth0
+    network: resys_dc_net
+    type: nic
+  root:
+    path: /
+    pool: resys
+    type: disk
+ephemeral: false
+profiles:
+- resys_profile
+stateful: false
+description: ""
