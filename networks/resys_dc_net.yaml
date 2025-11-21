@@ -1,0 +1,15 @@
+name: resys_dc_net
+description: ""
+type: bridge
+managed: true
+status: Created
+config:
+  ipv4.address: 10.10.10.1/24
+  ipv4.nat: "true"
+  ipv6.address: none
+used_by:
+- /1.0/instances/resys-dc1?project=ReSys
+- /1.0/profiles/resys_profile?project=ReSys
+locations:
+- none
+project: ReSys

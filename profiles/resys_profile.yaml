@@ -1,0 +1,17 @@
+name: resys_profile
+description: Profile for ReSys project
+config:
+  limits.cpu: "2"
+  limits.memory: 1GB
+devices:
+  eth0:
+    name: eth0
+    network: resys_dc_net
+    type: nic
+  root:
+    path: /
+    pool: resys
+    type: disk
+used_by:
+- /1.0/instances/resys-dc1?project=ReSys
+project: ReSys
