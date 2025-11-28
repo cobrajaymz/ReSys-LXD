@@ -6,7 +6,7 @@ sudo apt update -y
 sudo apt upgrade -y
 
 echo "[2/3] Installing LXD..."
-sudo apt install -y lxd lxd-client
+sudo snap install lxd
 
 echo "[3/3] Initializing LXD..."
 cat <<EOF | sudo lxd init --preseed
